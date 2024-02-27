@@ -4,11 +4,9 @@ import (
 	"html/template"
 	"log"
 	"net/http"
-)
 
-type Event struct {
-	Name string
-}
+	"github.com/niconiahi/go-htmx-demo/src/routes/home"
+)
 
 type Head struct {
 	Title string
@@ -18,31 +16,16 @@ type Head struct {
 	// scripts []Script
 }
 
-type Loader struct {
-	Event Event
-}
-
 type Data[T any] struct {
 	Head   Head
 	Loader T
 }
 
-type HomeLoader struct {
-	Event Event
-}
-
 func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		t := template.Must(
-			template.ParseFiles(
-				"src/root.html",
-				"src/routes/home.html",
-			),
-		)
-		t.Execute(w, Data[HomeLoader]{
-			Head:   Head{Title: "Home page"},
-			Loader: HomeLoader{Event: Event{Name: "Home page"}},
-		})
+		h := home.Handler{}
+		t := template.Must(template.ParseFiles(h.GetFiles()...))
+		t.Execute(w, h.GetData())
 	})
 
 	log.Fatal(http.ListenAndServe(":8000", nil))
