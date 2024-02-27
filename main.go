@@ -5,21 +5,8 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/niconiahi/go-htmx-demo/src/routes/home"
+	"github.com/niconiahi/gig.dance/src/routes/home"
 )
-
-type Head struct {
-	Title string
-	// metas []Meta
-	// links []Link
-	// styles []Style
-	// scripts []Script
-}
-
-type Data[T any] struct {
-	Head   Head
-	Loader T
-}
 
 func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {

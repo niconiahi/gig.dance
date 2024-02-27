@@ -1,3 +1,3 @@
-module github.com/niconiahi/go-htmx-demo
+module github.com/niconiahi/gig.dance
 
 go 1.21.0

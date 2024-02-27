@@ -1,5 +1,9 @@
 package home
 
+import (
+	"github.com/niconiahi/gig.dance/src/utils/html"
+)
+
 type Event struct {
 	Name string
 }
@@ -8,22 +12,14 @@ type Loader struct {
 	Event Event
 }
 
-type Head struct {
-	Title string
-	// metas []Meta
-	// links []Link
-	// styles []Style
-	// scripts []Script
-}
-
 type Handler struct {
-	Head   Head
+	Head   html.Head
 	Loader Loader
 }
 
 func (d *Handler) GetData() Handler {
 	return Handler{
-		Head: Head{
+		Head: html.Head{
 			Title: "Home page",
 		},
 		Loader: Loader{
