@@ -12,13 +12,15 @@ type Loader struct {
 	Event Event
 }
 
-type Handler struct {
+type Handler struct{}
+
+type Data struct {
 	Head   html.Head
 	Loader Loader
 }
 
-func (d *Handler) GetData() Handler {
-	return Handler{
+func (h *Handler) GetData() Data {
+	return Data{
 		Head: html.Head{
 			Title: "Home page",
 		},
@@ -30,7 +32,7 @@ func (d *Handler) GetData() Handler {
 	}
 }
 
-func (d *Handler) GetFiles() []string {
+func (h *Handler) GetFiles() []string {
 	return []string{
 		"src/root.html",
 		"src/routes/home/route.html",
