@@ -12,7 +12,12 @@ type Event struct {
 
 func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		t := template.Must(template.ParseFiles("src/root.html", "src/routes/home.html"))
+		t := template.Must(
+			template.ParseFiles(
+				"src/root.html",
+				"src/routes/home.html",
+			),
+		)
 		t.Execute(w, Event{Name: "Jodota 22"})
 	})
 
