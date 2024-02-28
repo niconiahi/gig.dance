@@ -1,6 +1,9 @@
 package home
 
 import (
+	"embed"
+	"html/template"
+
 	"github.com/niconiahi/gig.dance/src/utils/html"
 )
 
@@ -34,7 +37,14 @@ func (h *Handler) GetData() Data {
 
 func (h *Handler) GetFiles() []string {
 	return []string{
-		"src/root.html",
-		"src/routes/home/route.html",
+		"root.html",
+		"route.html",
 	}
+}
+
+//go:embed route.html root.html
+var files embed.FS
+
+func (h *Handler) GetTemplate() (*template.Template, error) {
+	return template.ParseFS(files, h.GetFiles()...)
 }

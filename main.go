@@ -11,7 +11,7 @@ import (
 func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		h := home.Handler{}
-		t := template.Must(template.ParseFiles(h.GetFiles()...))
+		t := template.Must(h.GetTemplate())
 		t.Execute(w, h.GetData())
 	})
 
