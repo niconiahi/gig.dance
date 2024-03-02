@@ -1,5 +1,12 @@
 {{ block "content" . }}
-<main>
-  <h1>{{ .Loader.Event.Name }}</h1>
-</main>
+<template shadowrootmode="open">
+  <style>
+    main {
+      background-color: plum;
+    }
+  </style>
+  <main>
+    <h1>{{ .Loader.Event.Name }}</h1>
+  </main>
+</template>
 {{ end }}
