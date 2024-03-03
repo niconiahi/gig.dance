@@ -4,7 +4,7 @@ import (
 	"embed"
 	"html/template"
 
-	"github.com/niconiahi/gig.dance/src/utils/html"
+	"github.com/niconiahi/gig.dance/packages/html"
 )
 
 type Event struct {

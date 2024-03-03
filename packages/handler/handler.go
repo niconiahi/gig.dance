@@ -1,7 +1,7 @@
 package handler
 
 import (
-	"github.com/niconiahi/gig.dance/src/utils/html"
+	"github.com/niconiahi/gig.dance/packages/html"
 )
 
 type Data[T any] struct {

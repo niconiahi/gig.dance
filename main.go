@@ -1,30 +1,23 @@
 package main
 
 import (
-	"database/sql"
-	"fmt"
 	"html/template"
 	"log"
 	"net/http"
-	"os"
 
-	"github.com/niconiahi/gig.dance/src/routes/home"
-	_ "github.com/tursodatabase/libsql-client-go/libsql"
+	"github.com/niconiahi/gig.dance/packages/db"
+	"github.com/niconiahi/gig.dance/routes/home"
 )
 
 func main() {
-	url := fmt.Sprintf(
-		"libsql://%s.turso.io?authToken=%s",
-		os.Getenv("DATABASE"),
-		os.Getenv("TOKEN"),
-	)
-
-	db, err := sql.Open("libsql", url)
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "failed to open db %s: %s", url, err)
-		os.Exit(1)
-	}
+	db := db.GetDb()
 	defer db.Close()
+
+	rows, err := db.Query("SELECT * FROM users")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer rows.Close()
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		h := home.Handler{}
