@@ -5,3 +5,6 @@ dev:
 
 build:
 	go build
+
+migrate:
+	goose up
