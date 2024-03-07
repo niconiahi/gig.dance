@@ -5,7 +5,7 @@ import (
 	"html/template"
 	"log"
 
-	"github.com/niconiahi/gig.dance/packages/db"
+	"github.com/niconiahi/gig.dance/packages/database"
 	"github.com/niconiahi/gig.dance/packages/html"
 )
 
@@ -25,7 +25,7 @@ type Data struct {
 }
 
 func (h *Handler) GetData() Data {
-	db := db.GetDb()
+	db := database.GetDb()
 	defer db.Close()
 
 	rows, err := db.Query("SELECT * FROM users")
