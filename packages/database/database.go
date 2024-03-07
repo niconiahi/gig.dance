@@ -8,7 +8,7 @@ import (
 	_ "github.com/tursodatabase/libsql-client-go/libsql"
 )
 
-func GetDb() *sql.DB {
+func GetDatabase() *sql.DB {
 	url := fmt.Sprintf(
 		"libsql://%s.turso.io?authToken=%s",
 		os.Getenv("DATABASE"),

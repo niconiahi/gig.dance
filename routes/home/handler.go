@@ -25,10 +25,10 @@ type Data struct {
 }
 
 func (h *Handler) GetData() Data {
-	db := database.GetDb()
-	defer db.Close()
+	d := database.GetDatabase()
+	defer d.Close()
 
-	rows, err := db.Query("SELECT * FROM users")
+	rows, err := d.Query("SELECT * FROM users")
 	if err != nil {
 		log.Fatal(err)
 	}
