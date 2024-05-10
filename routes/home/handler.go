@@ -14,7 +14,7 @@ type Event struct {
 }
 
 type Loader struct {
-	Event Event
+	Message string
 }
 
 type Handler struct{}
@@ -39,9 +39,7 @@ func (h *Handler) GetData() Data {
 			Title: "Home page",
 		},
 		Loader: Loader{
-			Event: Event{
-				Name: "Ryan Elliot - Live at Panorama Bar",
-			},
+			Message: "Made in Go with only standard library",
 		},
 	}
 }
