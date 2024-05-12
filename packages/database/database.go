@@ -10,9 +10,9 @@ import (
 
 func GetDatabase() *sql.DB {
 	url := fmt.Sprintf(
-		"libsql://%s.turso.io?authToken=%s",
-		os.Getenv("DATABASE"),
-		os.Getenv("TOKEN"),
+		"%s?authToken=%s",
+		os.Getenv("TURSO_DATABASE_URL"),
+		os.Getenv("TURSO_AUTH_TOKEN"),
 	)
 
 	db, err := sql.Open("libsql", url)

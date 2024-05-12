@@ -3,9 +3,9 @@ package home
 import (
 	"embed"
 	"html/template"
-	"log"
-
-	"github.com/niconiahi/gig.dance/packages/database"
+	// "log"
+	//
+	// "github.com/niconiahi/gig.dance/packages/database"
 	"github.com/niconiahi/gig.dance/packages/html"
 )
 
@@ -25,14 +25,14 @@ type Data struct {
 }
 
 func (h *Handler) GetData() Data {
-	d := database.GetDatabase()
-	defer d.Close()
-
-	rows, err := d.Query("SELECT * FROM users")
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer rows.Close()
+	// d := database.GetDatabase()
+	// defer d.Close()
+	//
+	// rows, err := d.Query("SELECT * FROM user")
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
+	// defer rows.Close()
 
 	return Data{
 		Head: html.Head{
