@@ -12,6 +12,7 @@ func main() {
 	mux := http.NewServeMux()
 
 	mux.HandleFunc("GET /", func(w http.ResponseWriter, r *http.Request) {
+		print(r.URL.Path)
 		print("incoming request from GET /\n")
 		h := home.Handler{}
 		t := template.Must(h.GetTemplate())
