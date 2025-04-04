@@ -2,7 +2,6 @@
 -- +goose StatementBegin
 create table user (
     id integer primary key autoincrement,
-    username text,
     name text,
     surname text
 );

@@ -6,8 +6,8 @@ import (
 	"html/template"
 	"log"
 
-	"github.com/niconiahi/gid.dance/packages/html"
 	"github.com/niconiahi/gig.dance/packages/database"
+	"github.com/niconiahi/gig.dance/packages/html"
 )
 
 type Loader struct {
