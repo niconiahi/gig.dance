@@ -6,5 +6,11 @@ dev:
 build:
 	go build
 
-migrate:
+db-migrate:
 	goose up
+
+db-delete:
+	rm -f database/main.sqlite
+
+db-seed:
+	./scripts/seed.sh

@@ -1,13 +1,13 @@
 -- +goose Up
 -- +goose StatementBegin
-create table user (
+create table event (
     id integer primary key autoincrement,
-    name text,
-    surname text
+    name text not null,
+    url text not null
 );
 -- +goose StatementEnd
 
 -- +goose Down
 -- +goose StatementBegin
-drop table user;
+drop table event;
 -- +goose StatementEnd

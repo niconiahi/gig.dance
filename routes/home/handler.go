@@ -32,15 +32,6 @@ func (h *Handler) GetData() Data {
 	d := database.GetDatabase()
 	defer d.Close()
 
-	user, err := d.Exec("INSERT INTO user (name, surname) VALUES (?, ?)", "nono", "lorenzo")
-	if err != nil {
-		log.Fatal(err)
-	}
-	_, err = user.LastInsertId()
-	if err != nil {
-		log.Fatal(err)
-	}
-
 	rows, err := d.Query("SELECT * FROM user")
 	if err != nil {
 		log.Fatal(err)
