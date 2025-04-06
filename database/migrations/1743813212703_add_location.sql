@@ -12,8 +12,8 @@ create table event_location (
     id integer primary key autoincrement,
     event_id integer not null,
     location_id integer not null,
-    foreign key (event_id) references event(id),
-    foreign key (location_id) references location(id)
+    foreign key (event_id) references event (id),
+    foreign key (location_id) references location (id)
 );
 -- +goose StatementEnd
 
